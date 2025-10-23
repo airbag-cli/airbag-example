@@ -1,8 +1,10 @@
 import io.github.airbag.Airbag;
+import io.github.airbag.expression.ExpressionParser;
 import io.github.airbag.symbol.Symbol;
 import io.github.airbag.symbol.SymbolFormatter;
 import io.github.airbag.symbol.SymbolProvider;
 import io.github.airbag.tree.DerivationTree;
+import io.github.airbag.tree.TreeFormatter;
 import io.github.airbag.tree.TreeProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,9 +71,22 @@ public class ExpressionTest {
 
         //Build expected tree
         DerivationTree expectedTree = treeProvider.fromSpec(
-                "(expr (expr (ID 'x')) '*' (expr '(' (expr (expr (ID 'y')) '+' (expr (INT '5'))) ')'))");
+                """
+                 (expr
+                     (expr (ID 'x'))
+                     '*'
+                     (expr
+                         '('
+                             (expr
+                                 (expr (ID  'y'))
+                                 '+'
+                                 (expr (INT '5'))
+                             )
+                         ')'
+                     )
+                 )""");
 
-        //Build actual tree
+        //Actual tree
         DerivationTree actualTree = treeProvider.fromInput(expected, "expr");
 
         //Assert tree

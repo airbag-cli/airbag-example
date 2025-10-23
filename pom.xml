@@ -17,7 +17,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>io.github.airbag</groupId>
+            <groupId>io.github.airbag-cli</groupId>
             <artifactId>airbag</artifactId>
             <version>0.0.1</version>
             <scope>test</scope>
