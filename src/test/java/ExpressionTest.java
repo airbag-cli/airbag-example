@@ -77,11 +77,11 @@ public class ExpressionTest {
                      '*'
                      (expr
                          '('
-                             (expr
-                                 (expr (ID  'y'))
-                                 '+'
-                                 (expr (INT '5'))
-                             )
+                         (expr
+                             (expr (ID  'y'))
+                             '+'
+                             (expr (INT '5'))
+                         )
                          ')'
                      )
                  )""");
